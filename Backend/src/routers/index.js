@@ -116,8 +116,8 @@ router.post("/Adminlogin", async (req, res) => {
     if (user) {
       const passwordMatch = await bcrypt.compare(password, user.password);
       if (passwordMatch) {
-        const token = await user.generateAuthToken();
-        res.send({ token });
+          const token = await user.generateAuthToken();
+          res.send({ token });
       } else {
         res.status(400).send("Login failed");
       }
